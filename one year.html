@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One Year With Faith 💕</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --rose: #e8b4b8;
+            --rose-dark: #d4848c;
+            --cream: #faf7f5;
+            --gold: #d4af37;
+            --charcoal: #2c2c2c;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--cream);
+            color: var(--charcoal);
+            overflow-x: hidden;
+        }
+        
+        /* Floating Hearts Animation */
+        .hearts-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+        
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            animation: float-up 15s infinite linear;
+            opacity: 0.6;
+        }
+        
+        @keyframes float-up {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            background: linear-gradient(135deg, var(--cream) 0%, #f5e6e8 100%);
+            padding: 2rem;
+        }
+        
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 400;
+            color: var(--rose-dark);
+            margin-bottom: 1rem;
+            animation: fade-in-up 1.5s ease-out;
+        }
+        
+        .hero .subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            animation: fade-in-up 1.5s ease-out 0.3s both;
+        }
+        
+        .hero .date {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-style: italic;
+            color: var(--gold);
+            margin-top: 2rem;
+            animation: fade-in-up 1.5s ease-out 0.6s both;
+        }
+        
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            animation: bounce 2s infinite;
+            color: var(--rose-dark);
+            font-size: 2rem;
+        }
+        
+        @keyframes fade-in-up {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-20px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        /* Love Letter Section */
+        .love-letter {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
+            position: relative;
+            z-index: 2;
+            background: white;
+        }
+        
+        .letter-container {
+            background: white;
+            padding: 4rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+            position: relative;
+            transform: rotate(-1deg);
+            transition: transform 0.3s ease;
+        }
+        
+        .letter-container:hover {
+            transform: rotate(0deg) scale(1.02);
+        }
+        
+        .letter-container::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: linear-gradient(135deg, var(--rose) 0%, var(--gold) 100%);
+            border-radius: 25px;
+            z-index: -1;
+            opacity: 0.3;
+        }
+        
+        .wax-seal {
+            width: 80px;
+            height: 80px;
+            background: var(--rose-dark);
+            border-radius: 50%;
+            margin: -6rem auto 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 4px 15px rgba(212, 132, 140, 0.4);
+            position: relative;
+            z-index: 3;
+        }
+        
+        .letter-header {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--charcoal);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .letter-body {
+            font-size: 1.1rem;
+            line-height: 2;
+            color: #444;
+            text-align: justify;
+        }
+        
+        .letter-body p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .highlight {
+            color: var(--rose-dark);
+            font-weight: 500;
+        }
+        
+        .signature {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-style: italic;
+            color: var(--rose-dark);
+            text-align: right;
+            margin-top: 3rem;
+        }
+        
+        /* Photo Gallery Section */
+        .gallery-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(180deg, white 0%, var(--cream) 100%);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            text-align: center;
+            color: var(--charcoal);
+            margin-bottom: 1rem;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 4rem;
+            font-size: 1.1rem;
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .photo-card {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            aspect-ratio: 1;
+            background: #f0f0f0;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .photo-card:hover {
+            transform: translateY(-10px) rotate(2deg);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .photo-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #ffe4e1 0%, #fff0f5 100%);
+            border: 3px dashed var(--rose);
+            transition: all 0.3s ease;
+        }
+        
+        .photo-card:hover .photo-placeholder {
+            background: linear-gradient(135deg, #ffd4d4 0%, #ffe4e9 100%);
+            border-color: var(--rose-dark);
+        }
+        
+        .photo-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+        
+        .photo-text {
+            color: var(--rose-dark);
+            font-size: 0.9rem;
+            text-align: center;
+            padding: 0 1rem;
+        }
+        
+        .photo-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            color: white;
+            padding: 2rem 1.5rem 1.5rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .photo-card:hover .photo-caption {
+            transform: translateY(0);
+        }
+        
+        /* Timeline Section */
+        .timeline {
+            padding: 6rem 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .timeline-item {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 4rem;
+            align-items: flex-start;
+            opacity: 0;
+            transform: translateX(-50px);
+            animation: slide-in 0.8s ease forwards;
+        }
+        
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+            transform: translateX(50px);
+        }
+        
+        @keyframes slide-in {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .timeline-dot {
+            width: 20px;
+            height: 20px;
+            background: var(--rose-dark);
+            border-radius: 50%;
+            flex-shrink: 0;
+            margin-top: 0.5rem;
+            box-shadow: 0 0 0 5px rgba(232, 180, 184, 0.3);
+        }
+        
+        .timeline-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            flex: 1;
+        }
+        
+        .timeline-date {
+            color: var(--gold);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--charcoal);
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: var(--charcoal);
+            color: white;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .footer h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .footer p {
+            opacity: 0.8;
+            font-size: 1.1rem;
+        }
+        
+        .big-heart {
+            font-size: 4rem;
+            margin-top: 2rem;
+            animation: pulse 2s infinite;
+            display: inline-block;
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .letter-container {
+                padding: 2rem;
+            }
+            
+            .wax-seal {
+                margin-top: -4rem;
+            }
+            
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline-item,
+            .timeline-item:nth-child(even) {
+                flex-direction: column;
+                transform: translateX(0);
+            }
+        }
+        
+        /* Interactive Elements */
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--rose-dark);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            margin-top: 2rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .btn:hover {
+            background: var(--charcoal);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        .hidden-message {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+            background: #fff5f5;
+            border-radius: 10px;
+            margin-top: 1rem;
+        }
+        
+        .hidden-message.revealed {
+            max-height: 500px;
+            padding: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Hearts Background -->
+    <div class="hearts-container" id="hearts"></div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Faith</h1>
+        <p class="subtitle">365 Days of Love</p>
+        <p class="date">Our One Year Anniversary</p>
+        <div class="scroll-indicator">↓</div>
+    </section>
+
+    <!-- Love Letter Section -->
+    <section class="love-letter">
+        <div class="letter-container">
+            <div class="wax-seal">💌</div>
+            <h2 class="letter-header">My Dearest Faith,</h2>
+            <div class="letter-body">
+                <p>
+                    One year ago, my world changed in the most beautiful way possible. I didn't just meet someone amazing—I found <span class="highlight">my person</span>. The one who makes ordinary moments feel like magic, who turns bad days into bearable ones with just a smile.
+                </p>
+                <p>
+                    This year with you has been a collection of <span class="highlight">thousands of perfect little moments</span>: morning coffees, late-night conversations, inside jokes that still make us laugh, and the quiet comfort of just being together. You've shown me what it means to be truly loved, truly seen, truly accepted.
+                </p>
+                <p>
+                    Faith, you are my <span class="highlight">favorite notification</span>, my best adventure, my safest home. Every day I choose you, and I'll keep choosing you for all the years to come.
+                </p>
+                <p>
+                    Thank you for this incredible year. Here's to forever.
+                </p>
+                <div class="signature">Yours completely,<br>❤️</div>
+            </div>
+            <button class="btn" onclick="revealMessage()">Open Secret Message 💝</button>
+            <div class="hidden-message" id="secretMessage">
+                P.S. You still give me butterflies. Every. Single. Day. 🦋
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo Gallery Section -->
+    <section class="gallery-section">
+        <h2 class="section-title">Our Story in Moments</h2>
+        <p class="section-subtitle">Click the hearts to add your favorite photos together</p>
+        
+        <div class="gallery">
+            <div class="photo-card" onclick="addPhoto(this)">
+                <div class="photo-placeholder">
+                    <div class="photo-icon">📸</div>
+                    <div class="photo-text">Our First Date<br><small>Click to add photo</small></div>
+                </div>
+                <div class="photo-caption">Where it all began</div>
+            </div>
+            
+            <div class="photo-card" onclick="addPhoto(this)">
+                <div class="photo-placeholder">
+                    <div class="photo-icon">🌅</div>
+                    <div class="photo-text">Favorite Memory<br><small>Click to add photo</small></div>
+                </div>
+                <div class="photo-caption">The moment I knew</div>
+            </div>
+            
+            <div class="photo-card" onclick="addPhoto(this)">
+                <div class="photo-placeholder">
+                    <div class="photo-icon">✨</div>
+                    <div class="photo-text">Adventure Together<br><small>Click to add photo</small></div>
+                </div>
+                <div class="photo-caption">Side by side</div>
+            </div>
+            
+            <div class="photo-card" onclick="addPhoto(this)">
+                <div class="photo-placeholder">
+                    <div class="photo-icon">🎉</div>
+                    <div class="photo-text">Celebration<br><small>Click to add photo</small></div>
+                </div>
+                <div class="photo-caption">Cheers to us</div>
+            </div>
+            
+            <div class="photo-card" onclick="addPhoto(this)">
+                <div class="photo-placeholder">
+                    <div class="photo-icon">💕</div>
+                    <div class="photo-text">Silly Moments<br><small>Click to add photo</small></div>
+                </div>
+                <div class="photo-caption">Laughter is our love language</div>
+            </div>
+            
+            <div class="photo-card" onclick="addPhoto(this)">
+                <div class="photo-placeholder">
+                    <div class="photo-icon">🌙</div>
+                    <div class="photo-text">Quiet Moments<br><small>Click to add photo</small></div>
+                </div>
+                <div class="photo-caption">Home is wherever I'm with you</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="timeline">
+        <h2 class="section-title" style="margin-bottom: 3rem;">This Year We...</h2>
+        
+        <div class="timeline-item" style="animation-delay: 0.1s;">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <div class="timeline-date">Started Something Beautiful</div>
+                <div class="timeline-title">The Beginning</div>
+                <p>That first conversation, that first spark. Who knew one "hello" would lead to all of this?</p>
+            </div>
+        </div>
+        
+        <div class="timeline-item" style="animation-delay: 0.2s;">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <div class="timeline-date">Learned Each Other</div>
+                <div class="timeline-title">Growing Together</div>
+                <p>Your favorite coffee order, the way you laugh at my jokes, how you always know when I need a hug.</p>
+            </div>
+        </div>
+        
+        <div class="timeline-item" style="animation-delay: 0.3s;">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <div class="timeline-date">Made Memories</div>
+                <div class="timeline-title">Our Adventures</div>
+                <p>Big trips and small moments. Every second with you is my favorite place to be.</p>
+            </div>
+        </div>
+        
+        <div class="timeline-item" style="animation-delay: 0.4s;">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <div class="timeline-date">Today</div>
+                <div class="timeline-title">One Year & Counting</div>
+                <p>The first of many anniversaries. I love you more than yesterday, but not as much as tomorrow.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <h3>Happy Anniversary, Faith</h3>
+        <p>Here's to all our tomorrows</p>
+        <div class="big-heart">❤️</div>
+    </footer>
+
+    <script>
+        // Generate floating hearts
+        function createHearts() {
+            const container = document.getElementById('hearts');
+            const heartSymbols = ['💕', '💖', '💗', '💓', '💝'];
+            
+            for (let i = 0; i < 20; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.textContent = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                heart.style.animationDelay = Math.random() * 10 + 's';
+                heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
+                container.appendChild(heart);
+            }
+        }
+        
+        createHearts();
+        
+        // Reveal secret message
+        function revealMessage() {
+            const msg = document.getElementById('secretMessage');
+            msg.classList.toggle('revealed');
+        }
+        
+        // Photo placeholder interaction
+        function addPhoto(card) {
+            const placeholder = card.querySelector('.photo-placeholder');
+            const icon = card.querySelector('.photo-icon');
+            const text = card.querySelector('.photo-text');
+            
+            // Simulate adding a photo with a cute animation
+            card.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                card.style.transform = '';
+                icon.textContent = '💝';
+                text.innerHTML = 'Photo Added!<br><small>Replace with your image</small>';
+                placeholder.style.background = 'linear-gradient(135deg, #ffb6c1 0%, #ffc0cb 100%)';
+            }, 200);
+        }
+        
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateX(0)';
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.timeline-item').forEach(item => {
+            observer.observe(item);
+        });
+        
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scroll.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
